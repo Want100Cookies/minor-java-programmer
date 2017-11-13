@@ -1,0 +1,60 @@
+<html ng-app="helloWorld">
+
+<head>
+    <title>Hello world</title>
+</head>
+
+<body>
+    <div ng-controller="helloController as ctrl">
+        <p>
+            <input type="text" placeholder="username" ng-model="ctrl.username">
+            <button ng-click="ctrl.retrieve()">Rretrieve</button>
+        </p>
+        <table>
+            <tr ng-repeat="row in ctrl.data">
+                <td>{{ row.full_name }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <script>
+        angular
+            .module("helloWorld", [])
+            .factory("github", function ($http) {
+                const token = "<youre api key here>";
+
+                $http.defaults.headers.common['Authorization'] = 'token ' + token;
+
+                function getForUser(username) {
+                    return $http({
+                        method: 'GET',
+                        url: 'https://api.github.com/users/' + username + '/repos',
+                    }).then(function success(response) {
+                        return response.data;
+                    });
+                }
+
+                return {
+                    getForUser: getForUser,
+                }
+            })
+            .controller("helloController", function helloController(github) {
+                let ctrl = this;
+
+
+                ctrl.data = [];
+
+
+                ctrl.retrieve = function () {
+                    github.getForUser(ctrl.username)
+                        .then(data => {
+                            ctrl.data = data;
+                        });
+                }
+            })
+    </script>
+</body>
+
+</html>
