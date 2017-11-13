@@ -1,0 +1,39 @@
+<html ng-app="helloWorld">
+    <head>
+        <title>Hello world</title>
+    </head>
+    <body>
+        <ul>
+            <li><a href="#!">Root</a></li>
+            <li><a href="#!other/foo">Other</a></li>
+        </ul>
+
+        <div ng-view></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+
+        <script>
+            angular
+            .module("helloWorld", ["ngRoute"])
+            .config(function ($routeProvider) {
+                $routeProvider
+                .when("/", {
+                    templateUrl: "/root.html",
+                    controller: "rootController"
+                })
+                .when("/other/:parameter", {
+                    templateUrl: "/other.html",
+                    controller: "otherController"
+                })
+            })
+            .controller("rootController", function rootController($scope) {
+                $scope.name = "root";
+            })
+            .controller("otherController", function otherController($scope, $routeParams) {
+                $scope.stuff = "other";
+                $scope.parameter = $routeParams.parameter;
+            })
+        </script>
+    </body>
+</html>
