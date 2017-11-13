@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+       <div class="col" ng-repeat="laptop in $ctrl.laptops">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ laptop.name }}</h4>
+                    <p class="card-text">Price: &euro; {{ laptop.base_price }}</p>
+                    <button ng-click="$ctrl.pick(laptop)" class="btn btn-primary">Configure</button>
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
