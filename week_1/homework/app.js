@@ -2,12 +2,19 @@ angular
     .module("app", ["ngAnimate"])
     .controller("MainCtrl", function MainCtrl() {
         let ctrl = this;
+
         ctrl.pickedLaptop = null;
+        ctrl.user = null;
+
         ctrl.state = PickerState;
 
         ctrl.pickLaptop = function(laptop) {
             ctrl.pickedLaptop = laptop;
         };
+
+        ctrl.setPersonalInfo = function(user) {
+            ctrl.user = user;
+        }
 
         ctrl.changeState = function(newState) {
             ctrl.state = newState;
@@ -17,6 +24,7 @@ angular
 const PickerState = "PICKER";
 const ConfigureState = "CONFIGURE";
 const PersonalState = "PERSONAL";
+const OverviewState = "OVERVIEW";
 
 function stateChangeWatcher(changesObj, component, state) {
     if (changesObj.state) {

@@ -1,12 +1,78 @@
-<div class="card">
+<div class="card mb-1">
     <div class="card-header">
         <h5 class="mb-0">Fill in some personal info</h5>
     </div>
     <div class="card-body collapse">
-        <div class="container">
-            <div class="row">
-               foo
+        <form name="personal" novalidate>
+            <div class="form-group">
+                <label for="name">Full name *</label>
+                <input type="text" name="name" id="name" class="form-control" ng-model="$ctrl.user.name" required>
+
+                <div ng-show="(personal.$submitted || personal.name.$touched) && personal.name.$error.required" class="alert alert-danger mt-2">
+                    Please enter your full name.
+                </div>
             </div>
-        </div>
+
+            <div class="form-group">
+                <label for="email">E-mail address *</label>
+                <input type="email" name="email" id="email" class="form-control" ng-model="$ctrl.user.email" required>
+
+                <div ng-show="(personal.$submitted || personal.email.$touched) && personal.email.$error.required" class="alert alert-danger mt-2">
+                    Please enter your e-mail address.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="iban">Bank number (IBAN) *</label>
+                <input type="text" name="iban" id="iban" class="form-control" ng-model="$ctrl.user.iban" required>
+
+                <div ng-show="(personal.$submitted || personal.iban.$touched) && personal.iban.$error.required" class="alert alert-danger mt-2">
+                    Please enter your IBAN.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address1">Address (line 1) *</label>
+                <input type="text" name="address1" id="address1" class="form-control" ng-model="$ctrl.user.address1" required>
+
+                <div ng-show="(personal.$submitted || personal.address1.$touched) && personal.address1.$error.required" class="alert alert-danger mt-2">
+                    Please enter your address
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address2">Address (line 2)</label>
+                <input type="text" name="address2" id="address2" class="form-control" ng-model="$ctrl.user.address2">
+            </div>
+
+            <div class="form-group">
+                <label for="postal_code">Postal code *</label>
+                <input type="text" name="postal_code" id="postal_code" class="form-control" ng-model="$ctrl.user.postal_code" required>
+
+                <div ng-show="(personal.$submitted || personal.postal_code.$touched) && personal.postal_code.$error.required" class="alert alert-danger mt-2">
+                    Please enter your postal code
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="city">City *</label>
+                <input type="text" name="city" id="city" class="form-control" ng-model="$ctrl.user.city" required>
+
+                <div ng-show="(personal.$submitted || personal.city.$touched) && personal.city.$error.required" class="alert alert-danger mt-2">
+                    Please enter your city
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country *</label>
+                <input type="text" name="country" id="country" class="form-control" ng-model="$ctrl.user.country" required>
+
+                <div ng-show="(personal.$submitted || personal.country.$touched) && personal.country.$error.required" class="alert alert-danger mt-2">
+                    Please enter your country
+                </div>
+            </div>
+
+            <input type="submit" ng-click="$ctrl.save()" class="btn btn-primary" value="Next" />
+        </form>
     </div>
 </div>

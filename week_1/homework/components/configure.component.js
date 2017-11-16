@@ -1,13 +1,15 @@
-function ConfigureController() {
+function OverviewController($scope) {
     let ctrl = this;
 
-    ctrl.$onChanges = function(changesObj) {        
+    ctrl.$onChanges = function(changesObj) {
         stateChangeWatcher(changesObj, "configure", ConfigureState);
     };
 
-    ctrl.save = function () {
-        ctrl.changeState({state: PersonalState});
-    }
+    ctrl.save = function() {
+        if ($scope.configure.$valid) {
+            ctrl.changeState({ state: PersonalState });
+        }
+    };
 }
 
 angular.module("app").component("configure", {
@@ -15,7 +17,7 @@ angular.module("app").component("configure", {
     bindings: {
         laptop: "<",
         state: "<",
-        changeState: "&",
+        changeState: "&"
     },
-    controller: ConfigureController
+    controller: OverviewController
 });
