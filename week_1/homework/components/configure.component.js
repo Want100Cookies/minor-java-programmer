@@ -1,11 +1,11 @@
 function OverviewController($scope) {
     let ctrl = this;
 
-    ctrl.$onChanges = function(changesObj) {
+    ctrl.$onChanges = changesObj => {
         stateChangeWatcher(changesObj, "configure", ConfigureState);
     };
 
-    ctrl.save = function() {
+    ctrl.save = () => {
         if ($scope.configure.$valid) {
             ctrl.changeState({ state: PersonalState });
         }

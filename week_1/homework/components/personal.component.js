@@ -3,11 +3,11 @@ function PersonalController() {
 
     ctrl.user = {};
 
-    ctrl.$onChanges = function(changesObj) {
+    ctrl.$onChanges = changesObj => {
         stateChangeWatcher(changesObj, "personal", PersonalState);
     };
 
-    ctrl.save = function() {
+    ctrl.save = () => {
         ctrl.onNext({ user: ctrl.user });
         ctrl.changeState({ state: OverviewState });
     };

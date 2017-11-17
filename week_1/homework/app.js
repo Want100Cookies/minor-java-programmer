@@ -8,15 +8,15 @@ angular
 
         ctrl.state = PickerState;
 
-        ctrl.pickLaptop = function(laptop) {
+        ctrl.pickLaptop = laptop => {
             ctrl.pickedLaptop = laptop;
         };
 
-        ctrl.setPersonalInfo = function(user) {
+        ctrl.setPersonalInfo = user => {
             ctrl.user = user;
         }
 
-        ctrl.changeState = function(newState) {
+        ctrl.changeState = newState => {
             ctrl.state = newState;
         };
     });
@@ -25,6 +25,7 @@ const PickerState = "PICKER";
 const ConfigureState = "CONFIGURE";
 const PersonalState = "PERSONAL";
 const OverviewState = "OVERVIEW";
+const SuccessState = "SUCCESS";
 
 function stateChangeWatcher(changesObj, component, state) {
     if (changesObj.state) {

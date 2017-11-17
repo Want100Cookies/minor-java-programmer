@@ -80,13 +80,13 @@ function PickerController() {
         }
     ];
 
-    ctrl.pick = function(laptop) {
+    ctrl.pick = laptop => {
         ctrl.onPick({ laptop: laptop });
 
         ctrl.changeState({state: ConfigureState});
     };
 
-    ctrl.$onChanges = function(changesObj) {
+    ctrl.$onChanges = changesObj => {
         stateChangeWatcher(changesObj, "picker", PickerState);
     };
 }
