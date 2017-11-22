@@ -1,0 +1,92 @@
+[
+    {
+        "week": 1,
+        "onderwerp": {
+            "title": "AngularJS",
+            "items": [
+                "Introductie",
+                "Controller",
+                "Service",
+                "Directives"
+            ]
+        }
+    },
+    {
+        "week": 2,
+        "onderwerp": {
+            "title": "AngularJS, Rest & JSON",
+            "items": [
+                "Herhaling AngularJS",
+                "Introductie Rest",
+                "Verdieping Rest",
+                "JSON"
+            ]
+        }
+    },
+    {
+        "week": 3,
+        "onderwerp": {
+            "title": "Spring",
+            "items": [
+                "Introducti, IoC container & DI",
+                "Spring Web gerelateerd aan web services",
+                "Spring Data gerelateerd aan ORM",
+                "Configuration Transaction and other modules"
+            ]
+        }
+    },
+    {
+        "week": 4,
+        "onderwerp": {
+            "title": "Hibernate & JPA",
+            "items": [
+                "Introductie datamodelling & ORM",
+                "Hibernate",
+                "JPA met hibernate",
+                "Spring en JPA"
+            ]
+        }
+    },
+    {
+        "week": 5,
+        "onderwerp": {
+            "title": "Unit Testing",
+            "items": [
+                "Introductie testen",
+                "Unit testen met JUnit",
+                "Hamcrest",
+                "Mocking met EasyMock/Mockto"
+            ]
+        }
+    },
+    {
+        "week": 6,
+        "onderwerp": {
+            "title": "JMS & JEE",
+            "items": [
+                "Introductie messaging",
+                "JMS",
+                "JEE, EJBs, Session Beans",
+                "JEE, EJBs, Message Driven Beans"
+            ]
+        }
+    },
+    {
+        "week": 7,
+        "onderwerp": {
+            "title": "Opdracht"
+        }
+    },
+    {
+        "week": 8,
+        "onderwerp": {
+            "title": "Opdracht"
+        }
+    },
+    {
+        "week": 9,
+        "onderwerp": {
+            "title": "Demo"
+        }
+    }
+]
