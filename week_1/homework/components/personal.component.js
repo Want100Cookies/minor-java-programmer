@@ -1,4 +1,4 @@
-function PersonalController() {
+function PersonalController($scope) {
     let ctrl = this;
 
     ctrl.user = {};
@@ -8,8 +8,10 @@ function PersonalController() {
     };
 
     ctrl.save = () => {
-        ctrl.onNext({ user: ctrl.user });
-        ctrl.changeState({ state: OverviewState });
+        if ($scope.personal.$valid) {
+            ctrl.onNext({ user: ctrl.user });
+            ctrl.changeState({ state: OverviewState });
+        }
     };
 }
 
