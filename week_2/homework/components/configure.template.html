@@ -1,0 +1,20 @@
+<div class="card mb-1">
+    <div class="card-header">
+        <h5 class="mb-0">Configure your laptop</h5>
+    </div>
+    <div class="card-body collapse">
+        <form name="configure" novalidate>
+            <div class="form-group" ng-repeat="options in $ctrl.laptop.options">
+                <label for="option_{{ options.catId }}">{{ options.message }}</label>
+                <select name="option_{{ options.catId }}" id="option_{{ options.catId }}" class="form-control" required ng-model="options.selected"
+                    ng-options="(option.value + ' (&euro;' + option.price + ')') for option in options.available track by option.id">
+                </select>
+                <div ng-show="configure.$submitted || configure['option_' + options.catId].$touched">
+                    <div ng-show="configure['option_' + options.catId].$error.required" class="alert alert-danger mt-2">Please select a value.</div>
+                </div>
+            </div>
+
+            <input type="submit" ng-click="$ctrl.save()" class="btn btn-primary" value="Next" />
+        </form>
+    </div>
+</div>

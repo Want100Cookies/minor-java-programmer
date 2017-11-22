@@ -1,0 +1,70 @@
+<div class="card mb-1">
+    <div class="card-header">
+        <h5 class="mb-0">Overview</h5>
+    </div>
+    <div class="card-body collapse">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Laptop configuration</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <b>Laptop:</b>
+                                    </td>
+                                    <td>{{ $ctrl.laptop.name }}</td>
+                                    <td>&euro;{{ $ctrl.laptop.base_price }}</td>
+                                </tr>
+                                <tr ng-repeat="option in $ctrl.laptop.options">
+                                    <td>
+                                        <b>{{ option.name }}:</b>
+                                    </td>
+                                    <td>{{ option.selected.value }}</td>
+                                    <td>&euro;{{ option.selected.price }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <i>Total:</i>
+                                    </td>
+                                    <td>
+                                        <b>&euro;{{ $ctrl.totalPrice }}</b>
+                                    </td>
+                                </tr>
+                            </table>
+                            <button class="btn btn-default" ng-click="$ctrl.goTo('picker')">Pick another laptop</button>
+                            <button class="btn btn-default" ng-click="$ctrl.goTo('configuration')">Change configuration</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Personal information</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <tr ng-repeat="(key, value) in $ctrl.user">
+                                    <td>
+                                        <b>{{ key }}:</b>
+                                    </td>
+                                    <td>{{ value }}</td>
+                                </tr>
+                            </table>
+                            <button class="btn btn-default" ng-click="$ctrl.goTo('personal')">Change personal information</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-success btn-lg btn-block mt-2" ng-click="$ctrl.confirm()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
