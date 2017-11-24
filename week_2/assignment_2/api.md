@@ -159,7 +159,7 @@ Create a new account. An account can be of type `CheckingAccount` or `SavingsAcc
             "InterestRate": "5.0",
         }
 
-# Deposit mony onto a account [/customers/{CustomerNumber}/accounts/{AccountNumber}]
+# Deposit money onto a account [/customers/{CustomerNumber}/accounts/{AccountNumber}/deposit]
 
 * Parameters:
     * CustomerNumber (int) - customer number of the customer
