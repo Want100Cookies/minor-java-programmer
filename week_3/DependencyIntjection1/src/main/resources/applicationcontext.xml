@@ -13,4 +13,8 @@
     <context:annotation-config/>
 
     <bean id="LoggerMessage" class="com.Want100Cookies.model.impl.LoggerMessage"/>
+
+    <bean id="processor" class="com.Want100Cookies.model.Processor">
+        <property name="message" ref="loggerMessage" />
+    </bean>
 </beans>
