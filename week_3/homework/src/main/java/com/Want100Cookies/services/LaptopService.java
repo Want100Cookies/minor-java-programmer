@@ -7,6 +7,4 @@ import java.util.List;
 public interface LaptopService {
 
     List<Laptop> getAllLaptops();
-
-    Laptop getLaptopById(long id);
 }

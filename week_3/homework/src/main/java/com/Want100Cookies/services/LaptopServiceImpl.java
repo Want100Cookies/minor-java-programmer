@@ -63,17 +63,4 @@ public class LaptopServiceImpl implements LaptopService {
                 )
         );
     }
-
-    @Override
-    public Laptop getLaptopById(long id) {
-        List<Laptop> laptops = this.getAllLaptops();
-
-        for(Laptop laptop : laptops) {
-            if (laptop.getId() == id) {
-                return laptop;
-            }
-        }
-
-        return null;
-    }
 }

@@ -4,13 +4,13 @@
     </div>
     <div class="card-body collapse">
         <form name="configure" novalidate>
-            <div class="form-group" ng-repeat="components in $ctrl.laptop.components">
-                <label for="option_{{ components.catId }}">{{ components.message }}</label>
-                <select name="option_{{ components.catId }}" id="option_{{ components.catId }}" class="form-control" required ng-model="components.selected"
-                    ng-components="(option.value + ' (&euro;' + option.price + ')') for option in components.available track by option.id">
+            <div class="form-group" ng-repeat="component in $ctrl.laptop.components">
+                <label for="option_{{ component.id }}">{{ component.message }}</label>
+                <select name="option_{{ component.id }}" id="option_{{ component.id }}" class="form-control" required ng-model="component.selected"
+                    ng-options="(option.value + ' (&euro;' + option.price + ')') for option in component.options track by option.id">
                 </select>
-                <div ng-show="configure.$submitted || configure['option_' + components.catId].$touched">
-                    <div ng-show="configure['option_' + components.catId].$error.required" class="alert alert-danger mt-2">Please select a value.</div>
+                <div ng-show="configure.$submitted || configure['option_' + component.id].$touched">
+                    <div ng-show="configure['option_' + component.id].$error.required" class="alert alert-danger mt-2">Please select a value.</div>
                 </div>
             </div>
 

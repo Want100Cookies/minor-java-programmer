@@ -4,10 +4,13 @@ import java.util.List;
 
 public class Laptop {
 
-    private final long id;
-    private final String name;
-    private final double base_price;
-    private final List<LaptopComponent> components;
+    private long id;
+    private String name;
+    private double base_price;
+    private List<LaptopComponent> components;
+
+    public Laptop() {
+    }
 
     public Laptop(long id, String name, double base_price, List<LaptopComponent> components) {
         this.id = id;

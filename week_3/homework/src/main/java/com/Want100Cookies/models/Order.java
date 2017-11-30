@@ -1,19 +1,18 @@
 package com.Want100Cookies.models;
 
-import java.util.Map;
-
 public class Order {
 
-    private final long id;
-    private final User user;
-    private final Laptop laptop;
-    private final Map<LaptopComponent, LaptopOption> selectedOptions;
+    private long id;
+    private User user;
+    private Laptop laptop;
 
-    public Order(long id, User user, Laptop laptop, Map<LaptopComponent, LaptopOption> selectedOptions) {
+    public Order() {
+    }
+
+    public Order(long id, User user, Laptop laptop) {
         this.id = id;
         this.user = user;
         this.laptop = laptop;
-        this.selectedOptions = selectedOptions;
     }
 
     public long getId() {
@@ -26,9 +25,5 @@ public class Order {
 
     public Laptop getLaptop() {
         return laptop;
-    }
-
-    public Map<LaptopComponent, LaptopOption> getSelectedOptions() {
-        return selectedOptions;
     }
 }

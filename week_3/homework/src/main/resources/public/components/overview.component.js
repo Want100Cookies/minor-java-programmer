@@ -11,10 +11,10 @@ function OverviewController($scope, OrderService) {
             changesObj.state &&
             changesObj.state.currentValue === OverviewState
         ) {
-            ctrl.totalPrice = ctrl.laptop.base_price;
-            ctrl.laptop.options.forEach(option => {
-                if (option.selected !== null) {
-                    ctrl.totalPrice += option.selected.price;
+            ctrl.totalPrice = ctrl.laptop.basePrice;
+            ctrl.laptop.components.forEach(component => {
+                if (component.selected !== null) {
+                    ctrl.totalPrice += component.selected.price;
                 }
             });
         }
@@ -49,11 +49,7 @@ function OverviewController($scope, OrderService) {
             laptop: ctrl.laptop,
             user: ctrl.user
         }).then(response => {
-            if (response.data.status === 'ok') {
-                ctrl.changeState({ state: SuccessState });                            
-            } else {
-                alert('You dun something wrung now');
-            }
+            ctrl.changeState({ state: SuccessState });
         }, error => {
             alert("Order could not be processed. Please try again later.");
         })

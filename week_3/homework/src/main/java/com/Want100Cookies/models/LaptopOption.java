@@ -2,9 +2,12 @@ package com.Want100Cookies.models;
 
 public class LaptopOption {
 
-    private final long id;
-    private final String value;
-    private final double price;
+    private long id;
+    private String value;
+    private double price;
+
+    public LaptopOption() {
+    }
 
     public LaptopOption(long id, String value, double price) {
         this.id = id;

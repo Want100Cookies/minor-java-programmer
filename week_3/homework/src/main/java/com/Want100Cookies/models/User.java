@@ -2,15 +2,18 @@ package com.Want100Cookies.models;
 
 public class User {
 
-    private final long id;
-    private final String name;
-    private final String email;
-    private final String iban;
-    private final String address1;
-    private final String address2;
-    private final String postal_code;
-    private final String city;
-    private final String country;
+    private long id;
+    private String name;
+    private String email;
+    private String iban;
+    private String address1;
+    private String address2;
+    private String postal_code;
+    private String city;
+    private String country;
+
+    public User() {
+    }
 
     public User(long id, String name, String email, String iban, String address1, String address2, String postal_code, String city, String country) {
         this.id = id;

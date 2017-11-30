@@ -4,16 +4,20 @@ import java.util.List;
 
 public class LaptopComponent {
 
-    private final long id;
-    private final String name;
-    private final String message;
-    private final List<LaptopOption> available;
+    private long id;
+    private String name;
+    private String message;
+    private List<LaptopOption> options;
+    private LaptopOption selected;
 
-    public LaptopComponent(long id, String name, String message, List<LaptopOption> available) {
+    public LaptopComponent() {
+    }
+
+    public LaptopComponent(long id, String name, String message, List<LaptopOption> options) {
         this.id = id;
         this.name = name;
         this.message = message;
-        this.available = available;
+        this.options = options;
     }
 
     public long getId() {
@@ -29,6 +33,10 @@ public class LaptopComponent {
     }
 
     public List<LaptopOption> getOptions() {
-        return available;
+        return options;
+    }
+
+    public LaptopOption getSelected() {
+        return selected;
     }
 }
