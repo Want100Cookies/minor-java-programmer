@@ -1,5 +1,5 @@
 mysql:
-  build: ./mysql
+  image: mysql:5.7.15
   environment:
     MYSQL_USER: dbuser
     MYSQL_PASSWORD: dbpassword

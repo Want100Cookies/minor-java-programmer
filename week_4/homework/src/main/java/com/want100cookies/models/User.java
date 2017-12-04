@@ -1,15 +1,30 @@
 package com.want100cookies.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Users")
 public class User {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String name;
+
     private String email;
+
     private String iban;
+
     private String address1;
+
     private String address2;
+
     private String postal_code;
+
     private String city;
+
     private String country;
 
     public User() {
@@ -61,5 +76,20 @@ public class User {
 
     public String getCountry() {
         return country;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", iban='" + iban + '\'' +
+                ", address1='" + address1 + '\'' +
+                ", address2='" + address2 + '\'' +
+                ", postal_code='" + postal_code + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

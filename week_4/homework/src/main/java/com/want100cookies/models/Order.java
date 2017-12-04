@@ -1,9 +1,20 @@
 package com.want100cookies.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Orders")
 public class Order {
 
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
+
+    @ManyToOne
     private User user;
+
+    @ManyToOne
     private Laptop laptop;
 
     public Order() {
@@ -25,5 +36,14 @@ public class Order {
 
     public Laptop getLaptop() {
         return laptop;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", user=" + user +
+                ", laptop=" + laptop +
+                '}';
     }
 }
