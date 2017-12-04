@@ -1,0 +1,20 @@
+<div class="card mb-1">
+    <div class="card-header">
+        <h5 class="mb-0">Pick a laptop</h5>
+    </div>
+    <div class="card-body collapse show">
+        <div class="container">
+            <div class="row">
+                <div class="col" ng-repeat="laptop in $ctrl.laptops">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ laptop.name }}</h4>
+                            <p class="card-text">Price: &euro; {{ laptop.basePrice }}</p>
+                            <button ng-click="$ctrl.pick(laptop)" class="btn btn-primary">Configure</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

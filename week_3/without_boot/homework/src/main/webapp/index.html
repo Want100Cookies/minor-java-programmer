@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Configure your laptop</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body ng-app="app">
+        <div class="container" ng-controller="MainCtrl as $ctrl">
+            <h1>Configure your laptop here!</h1>
+            <br>
+
+            <picker state="$ctrl.state" 
+                    change-state="$ctrl.changeState(state)"
+                    on-pick="$ctrl.pickLaptop(laptop)"></picker>
+            
+            <configure state="$ctrl.state"
+                       change-state="$ctrl.changeState(state)"
+                       laptop="$ctrl.pickedLaptop"></configure>
+
+            <personal state="$ctrl.state"
+                      change-state="$ctrl.changeState(state)"
+                      on-next="$ctrl.setPersonalInfo(user)"></personal>
+
+            <overview state="$ctrl.state"
+                      change-state="$ctrl.changeState(state)"
+                      laptop="$ctrl.pickedLaptop"
+                      user="$ctrl.user"></overview>
+
+            <success state="$ctrl.state"
+                     laptop="$ctrl.pickedLaptop"
+                     user="$ctrl.user"></success>
+
+        </div>
+
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+        <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="/node_modules/angular/angular.js"></script>
+        <script src="/node_modules/angular-animate/angular-animate.js"></script>
+        
+        <script src="/app.js"></script>
+        
+        <!-- SERVICES -->
+        <script src="/services/laptop.service.js"></script>
+        <script src="/services/order.service.js"></script>
+
+        <!-- COMPONENTS -->
+        <script src="/components/picker.component.js"></script>
+        <script src="/components/configure.component.js"></script>
+        <script src="/components/personal.component.js"></script>
+        <script src="/components/overview.component.js"></script>
+        <script src="/components/success.component.js"></script>
+    </body>
+</html>
