@@ -2,6 +2,7 @@ function OverviewController($scope, OrderService) {
     let ctrl = this;
 
     ctrl.totalPrice = 0;
+    ctrl.selectedOptions = [];
 
     ctrl.$onChanges = changesObj => {
         stateChangeWatcher(changesObj, "overview", OverviewState);
@@ -15,6 +16,8 @@ function OverviewController($scope, OrderService) {
             ctrl.laptop.components.forEach(component => {
                 if (component.selected !== null) {
                     ctrl.totalPrice += component.selected.price;
+
+                    ctrl.selectedOptions.push(component.selected);
                 }
             });
         }
@@ -44,10 +47,10 @@ function OverviewController($scope, OrderService) {
     };
 
     ctrl.confirm = () => {
-        // Todo: send order to back-end
-        OrderService.makeOrder({
+       OrderService.makeOrder({
             laptop: ctrl.laptop,
-            user: ctrl.user
+            user: ctrl.user,
+            selectedOptions: ctrl.selectedOptions
         }).then(response => {
             ctrl.changeState({ state: SuccessState });
         }, error => {

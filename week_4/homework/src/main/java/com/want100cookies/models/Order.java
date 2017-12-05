@@ -1,32 +1,40 @@
 package com.want100cookies.models;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Orders")
 public class Order {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 
     @ManyToOne
     private Laptop laptop;
 
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinTable(name = "OrderOption", joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "option_id", referencedColumnName = "id"))
+    private List<LaptopOption> selectedOptions;
+
     public Order() {
     }
 
-    public Order(long id, User user, Laptop laptop) {
-        this.id = id;
+    public Order(User user, Laptop laptop, List<LaptopOption> selectedOptions) {
         this.user = user;
         this.laptop = laptop;
+        this.selectedOptions = selectedOptions;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -36,6 +44,10 @@ public class Order {
 
     public Laptop getLaptop() {
         return laptop;
+    }
+
+    public List<LaptopOption> getSelectedOptions() {
+        return selectedOptions;
     }
 
     @Override

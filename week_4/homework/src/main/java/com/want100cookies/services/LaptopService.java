@@ -6,5 +6,11 @@ import java.util.List;
 
 public interface LaptopService {
 
+    void add(Laptop laptop);
+
     List<Laptop> getAllLaptops();
+
+    Laptop getLaptop(Long id);
+
+    List<Laptop> getDemoData();
 }

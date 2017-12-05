@@ -1,5 +1,8 @@
 package com.want100cookies.models;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -11,26 +14,27 @@ public class Laptop implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String name;
 
     private double base_price;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "laptop_id")
     private List<LaptopComponent> components;
 
     public Laptop() {
     }
 
-    public Laptop(long id, String name, double base_price, List<LaptopComponent> components) {
-        this.id = id;
+    public Laptop(String name, double base_price, List<LaptopComponent> components) {
         this.name = name;
         this.base_price = base_price;
         this.components = components;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

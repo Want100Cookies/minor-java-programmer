@@ -10,22 +10,24 @@ public class LaptopOption implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String value;
 
     private double price;
 
+    @ManyToOne
+    private LaptopComponent component;
+
     public LaptopOption() {
     }
 
-    public LaptopOption(long id, String value, double price) {
-        this.id = id;
+    public LaptopOption(String value, double price) {
         this.value = value;
         this.price = price;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

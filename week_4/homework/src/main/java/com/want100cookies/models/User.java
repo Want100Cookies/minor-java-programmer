@@ -9,7 +9,7 @@ public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String name;
 
@@ -21,7 +21,7 @@ public class User {
 
     private String address2;
 
-    private String postal_code;
+    private String postalCode;
 
     private String city;
 
@@ -30,19 +30,18 @@ public class User {
     public User() {
     }
 
-    public User(long id, String name, String email, String iban, String address1, String address2, String postal_code, String city, String country) {
-        this.id = id;
+    public User(String name, String email, String iban, String address1, String address2, String postalCode, String city, String country) {
         this.name = name;
         this.email = email;
         this.iban = iban;
         this.address1 = address1;
         this.address2 = address2;
-        this.postal_code = postal_code;
+        this.postalCode = postalCode;
         this.city = city;
         this.country = country;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -67,7 +66,7 @@ public class User {
     }
 
     public String getPostalCode() {
-        return postal_code;
+        return postalCode;
     }
 
     public String getCity() {
@@ -87,7 +86,7 @@ public class User {
                 ", iban='" + iban + '\'' +
                 ", address1='" + address1 + '\'' +
                 ", address2='" + address2 + '\'' +
-                ", postal_code='" + postal_code + '\'' +
+                ", postalCode='" + postalCode + '\'' +
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
                 '}';
