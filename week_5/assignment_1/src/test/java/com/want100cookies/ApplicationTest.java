@@ -7,7 +7,7 @@ import org.junit.Test;
 public class ApplicationTest {
 
     @Test
-    public void testApplication() {
+    public void HelloWorldTestCase() {
         Assert.assertEquals(Application.hello("world"), "Hello, world!");
     }
 }
