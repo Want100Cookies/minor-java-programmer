@@ -2,5 +2,5 @@
 # Restarts the mysql and phpmyadmin containers
 
 docker-compose down
-docker-compose up -d mysql phpmyadmin
+docker-compose up -d mysql phpmyadmin activemq
 
